@@ -36,10 +36,15 @@
                         <p id="about-description">SHOPPON is your go-to marketplace for curated fashion. We connect buyers with sellers offering everything from brand-new collections to unique thrift treasures. Affordable style, always within reach.</p>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="your-model-image.jpg" alt="Model Display">
-                    
+              
+            <div class="hero-image">
+                <div class="slideshow-container">
+                    <img src="../images/im1.jpg" class="hero-slide active" alt="Model 1">
+                    <img src="../images/im2.jpg" class="hero-slide" alt="Model 2">
+                    <img src="../images/im3.jpg" class="hero-slide" alt="Model 3">
                 </div>
+            </div>
+
             </div>
         </section>
 
@@ -53,14 +58,14 @@
             
             <div class="infinite-slider">
                 <div class="slider-track">
-                    <div class="slide-card"><div class="img-box"><img src="item1.jpg"></div></div>
-                    <div class="slide-card"><div class="img-box"><img src="item2.jpg"></div></div>
-                    <div class="slide-card"><div class="img-box"><img src="item3.jpg"></div></div>
-                    <div class="slide-card"><div class="img-box"><img src="item4.jpg"></div></div>
-                    <div class="slide-card"><div class="img-box"><img src="item5.jpg"></div></div>
-                    <div class="slide-card"><div class="img-box"><img src="item1.jpg"></div></div>
-                    <div class="slide-card"><div class="img-box"><img src="item2.jpg"></div></div>
-                    <div class="slide-card"><div class="img-box"><img src="item3.jpg"></div></div>
+                    <div class="slide-card"><div class="img-box"><img src="../images/item1.jpg"></div></div>
+                    <div class="slide-card"><div class="img-box"><img src="../images/item2.jpg"></div></div>
+                    <div class="slide-card"><div class="img-box"><img src="../images/item3.jpg"></div></div>
+                    <div class="slide-card"><div class="img-box"><img src="../images/item4.jpg"></div></div>
+                    <div class="slide-card"><div class="img-box"><img src="../images/item5.jpg"></div></div>
+                    <div class="slide-card"><div class="img-box"><img src="../images/item6.jpg"></div></div>
+                    <div class="slide-card"><div class="img-box"><img src="../images/item1.jpg"></div></div>
+                    <div class="slide-card"><div class="img-box"><img src="../images/item2.jpg"></div></div>
                 </div>
             </div>
         </section>
@@ -81,5 +86,6 @@
         <p class="copyright-text">&copy; 2026 SHOPPON. All rights reserved.</p>
     </footer>
 
+<script src="../js/home.js"></script>
 </body>
 </html>
