@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    background: linear-gradient(to right, #d5ebff,rgb(229, 247, 255));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index:1000;
+    padding: 25px 0;
+    background: linear-gradient(to right, #f6fafd,white);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+
+.container {
+    max-width: 1400px;
+    margin-top: 10px;
+    margin-left: 40px;
+    padding: 0 20px;
+    align-items: center;
+    display: flex;
+}
+
+.auth-group{
+    margin-left: 950px;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.logo i {
+    color: #008cff;
+
+}
+
+
+.btn-login {
+    text-decoration: none;
+    background: #008cff;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 10px;
+    margin-left: 45px;
+    margin-right: 30px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn-signup {
+    background: #008cff;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+.hero {
+    padding: 140px 0 60px 0;
+    margin-left: 100px;
+ 
+}
+
+.hero-content{
+    margin-top: 80px;
+}
+
+
+.hero-content h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+
+
+.hero-content h1 span {
+    color: #008cff; 
+
+}
+
+.hero-subtext {
+    font-size: 17px;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+#aboutTag{
+    color: #008cff;
+}
+
+
+.about-description {
+    background: white;
+    font-size: 16px;
+    color: #777;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #e1efff;
+    max-width: 530px;
+
+}
+
+#about-description{
+    margin-top: 10px;
+}
+
+.container-hero{
+    display: flex;
+}
+
+.hero-image img {
+    margin:50px 0px 0px 150px;
+    
+}
+
+
