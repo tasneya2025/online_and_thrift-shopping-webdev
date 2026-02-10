@@ -38,11 +38,11 @@
                 </div>
               
             <div class="hero-image">
-                <div class="slideshow-container">
+                
                     <img src="../images/im1.jpg" class="hero-slide active" alt="Model 1">
                     <img src="../images/im2.jpg" class="hero-slide" alt="Model 2">
                     <img src="../images/im3.jpg" class="hero-slide" alt="Model 3">
-                </div>
+                
             </div>
 
             </div>
@@ -66,25 +66,37 @@
                     <div class="slide-card"><div class="img-box"><img src="../images/item6.jpg"></div></div>
                     <div class="slide-card"><div class="img-box"><img src="../images/item1.jpg"></div></div>
                     <div class="slide-card"><div class="img-box"><img src="../images/item2.jpg"></div></div>
+                    <div class="slide-card"><div class="img-box"><img src="../images/item5.jpg"></div></div>
+                    <div class="slide-card"><div class="img-box"><img src="../images/item6.jpg"></div></div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-logo">
-                <i class="fa-solid fa-bag-shopping"></i>
-            </div>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h2 class="footer-logo"><i class="fa-solid fa-bag-shopping"></i> SHOPPON</h2>
+            <p>Discover unique fashion pieces and hidden gems at unbeatable prices.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <p><i class="fa-solid fa-envelope"></i> hello@shoppon.com</p>
+            <p><i class="fa-solid fa-phone"></i> +880 1745636346 SHOPPON</p>
             <div class="footer-socials">
-                <span><i class="far fa-envelope"></i> hello@shoppon.com</span>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
+                <a href="#" class="icons"><i class="fa-brands fa-facebook"></i></a> 
+                <a href="#" class="icons"><i class="fa-brands fa-instagram"></i></a> 
+                <a href="#" class="icons"><i class="fa-brands fa-x-snapchat"></i></a> 
             </div>
         </div>
-        <p class="copyright-text">&copy; 2026 SHOPPON. All rights reserved.</p>
-    </footer>
+
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 SHOPPON. All rights reserved.</p>
+    </div>
+</footer>
 
 <script src="../js/home.js"></script>
 </body>

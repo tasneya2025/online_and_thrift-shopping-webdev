@@ -5,7 +5,7 @@
 
 body {
     
-    background: linear-gradient(to right, #d5ebff,rgb(229, 247, 255));
+    background: linear-gradient(to right, #fac6ff,rgb(229, 247, 255));
     background-repeat: no-repeat;
     background-attachment: fixed;
     
@@ -44,11 +44,7 @@ body {
     gap: 8px;
     font-size: 22px;
     font-weight: 800;
-}
-
-.logo i {
     color: #008cff;
-
 }
 
 
@@ -127,33 +123,31 @@ body {
     display: flex;
 }
 
-.hero-image img {
-    margin:50px 0px 0px 150px;
-    
-}
+
 
 
 .hero-image {
-    width: 750px; 
-    height: 430px; 
+    width: 620px; 
+    height: 380px; 
     position: relative;
-    margin: 15px 0px 0px 30px;
-    overflow: hidden;
-    
-}
+    margin: 30px 0 0 80px;
+    border-radius: 30px;
+    box-shadow: 10px 10px 50px rgb(142, 223, 255); 
 
+ 
+}
 
 .hero-slide {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
+    width: 620px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 30px; 
     opacity: 0;
-    transition: opacity 1s ease-in-out; 
+    transition: opacity 1s ease-in-out;
 }
-
 
 .hero-slide.active {
     opacity: 1;
@@ -168,7 +162,10 @@ body {
     font-size: 32px;
     margin-bottom: 8px;
  }
-.trending-header p { color: #888; margin-bottom: 40px; }
+
+.trending-header p { 
+    color: #888; margin-bottom: 40px; 
+}
 
 .infinite-slider {
     overflow: hidden;
@@ -183,7 +180,7 @@ body {
 
 
 .slider-track:hover {
-    animation-play-state: paused;
+    animation-play-state:paused;
 }
 
 @keyframes slideLeft {
@@ -192,7 +189,7 @@ body {
 }
 
 .slide-card {
-    background: white;
+  
     padding: 12px;
     border-radius: 15px;
     width: 240px;
@@ -201,7 +198,7 @@ body {
 }
 
 .img-box {
-    background-color: #d1e9ff; 
+    
     aspect-ratio: 1/1;
     border-radius: 12px;
     display: flex;
@@ -211,9 +208,51 @@ body {
 }
 
 .img-box img {
+    
     width: 90%;
     height: auto;
     object-fit: contain;
 }
 
 
+.footer {
+    background-color: #f9fcff; 
+    color: #6e6e6e;
+    padding: 50px 0 20px 0;
+    margin-top: 60px;
+    border-top: 1px solid #e1efff; 
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center; 
+    padding: 0 40px;
+}
+
+
+.footer-col{
+    margin-left: 120px;
+}
+
+
+.footer-logo {
+    color: #008cff; 
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+
+.icons{
+    color: grey;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e1efff;
+    font-size: 12px;
+    color: #aaa;
+}
