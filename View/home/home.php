@@ -18,8 +18,8 @@
                 <span>SHOPPON</span>
             </div>
             <div class="auth-group">
-                <a href="#" class="btn-login">Log In</a>
-                <a href="#" class="btn-signup">Sign Up</a>
+                <a href="../login/login.php" class="btn-login">Log In</a>
+                <a href="../login/signUp.php" class="btn-signup">Sign Up</a>
             </div>
         </div>
     </header>
