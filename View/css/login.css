@@ -62,7 +62,7 @@
 }
 
 #usertype{
-    margin:10px 0px 0px 0px;
+    margin:5px 0px 0px 0px;
     padding:10px;
     width:300px;
     font-size: 15px;
@@ -70,6 +70,7 @@
     border-radius: 10px;
     color: #777;
     outline: none;
+    border: none;
 }
 
 
@@ -175,10 +176,18 @@
     background: #4a7dff; 
 }
 
-.error-msg { 
+.error-text {
     color: #ff4d4d; 
-    font-size: 13px; 
-    margin-bottom: 15px; 
-    text-align: center;
-    font-style: italic; 
+    font-size: 0.8rem;
+    display: block; 
+    margin-top: 10px;
+    font-weight: 500;
+    text-align: left;
+    padding-left: 5px;
+
+}
+
+
+.select-group .error-text {
+    margin-top: 5px;
 }
