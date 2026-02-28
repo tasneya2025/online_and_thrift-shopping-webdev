@@ -41,13 +41,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = authuser($email, $password, $roleId);
 
         if ($user) {
-            $_SESSION['name'] = $user['name'];
+    
+            $_SESSION['name'] = $user['username']; 
             $_SESSION['role'] = $user['role'];
             $_SESSION['email'] = $user['email'];
-
         
             if ($user['role'] == 1) {
-                header("Location: ../View/seller/dashboard.php");
+                header("Location: ../View/Seller/dashboard.php");
             } elseif ($user['role'] == 2) {
                 header("Location: ../View/buyer/dashboard.php");
             } elseif ($user['role'] == 3) {
