@@ -1,18 +1,19 @@
 <?php
 require_once("db.php");
 
-function authuser($role,$email, $password) {
-    $conn = get_db_connection() ;  
+function authuser($email, $password, $roleId) {
+    $conn = get_db_connection();
     
 
-    $email = mysqli_real_escape_string($conn, $email);
-    $role = mysqli_real_escape_string($conn, $role);
-
-    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password' AND role='$role'";
+    $sql = "SELECT * FROM seller WHERE email='$email' AND role='$roleId'";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
-        return mysqli_fetch_assoc($result);
+        $user = mysqli_fetch_assoc($result);
+    
+        if (password_verify($password, $user['password'])) {
+            return $user; 
+        }
     }
     return false;
 }
