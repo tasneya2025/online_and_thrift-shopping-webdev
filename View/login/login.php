@@ -1,6 +1,11 @@
 <?php 
 session_start(); 
+
+$cookie_email = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : "";
+$cookie_pass = isset($_COOKIE['user_pass']) ? $_COOKIE['user_pass'] : "";
+$cookie_role = isset($_COOKIE['user_role']) ? $_COOKIE['user_role'] : "";
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

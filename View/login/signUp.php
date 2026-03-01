@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Sign Up | SHOPPON</title>
-    <link rel="stylesheet" href="../css/signUp.css">
+    <link rel="stylesheet" href="../../View/css/signUp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="login-body">
