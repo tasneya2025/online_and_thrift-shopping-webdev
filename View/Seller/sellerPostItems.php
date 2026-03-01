@@ -27,7 +27,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
             <nav class="side-nav">
                 <a href="sellerDashboard.php"><i class="fa-solid fa-house"></i> Dashboard</a>
                 <a href="sellerPostItems.php" class="active"><i class="fa-solid fa-plus"></i> Post Item</a>
-                <a href="sellerEditItems.php"><i class="fa-solid fa-gear"></i> Edit Item</a>
             </nav>
             <div class="account-info">
                 <p>Seller Account</p>
