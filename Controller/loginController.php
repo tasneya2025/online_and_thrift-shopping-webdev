@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $user['email'];
         
             if ($user['role'] == 1) {
-                header("Location: ../View/Seller/dashboard.php");
+                header("Location: ../View/Seller/sellerDashboard.php");
             } elseif ($user['role'] == 2) {
                 header("Location: ../View/buyer/dashboard.php");
             } elseif ($user['role'] == 3) {
