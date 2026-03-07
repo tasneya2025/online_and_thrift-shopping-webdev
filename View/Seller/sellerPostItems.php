@@ -24,19 +24,25 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
                     <p>Seller Center</p>
                 </div>
             </div>
+
             <nav class="side-nav">
                 <a href="sellerDashboard.php"><i class="fa-solid fa-house"></i> Dashboard</a>
                 <a href="sellerPostItems.php" class="active"><i class="fa-solid fa-plus"></i> Post Item</a>
                 <a href="sellerSettings.php"><i class="fa-solid fa-gear"></i> Settings</a>
 
             </nav>
-            <div class="account-info">
-                <p>Seller Account</p>
-                <strong><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : "Guest Seller"; ?></strong>
-                <br>
-                <small style="font-size: 11px; color: #666;">
-                    <?php echo isset($_SESSION['email']) ? $_SESSION['email'] : "seller@shoppon.com"; ?>
-                </small>
+
+            <div class="bottom-section">
+                <div class="account-info">
+                    <p>Seller Account</p>
+                    <strong><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : "Guest Seller"; ?></strong>
+                    <br>
+                    <small><?php echo isset($_SESSION['email']) ? $_SESSION['email'] : "seller@shoppon.com"; ?></small>
+                </div>
+
+                <a href="../../Controller/logoutController.php" class="logout-link">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
             </div>
         </aside>
 
