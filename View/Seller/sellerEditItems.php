@@ -28,7 +28,7 @@ if (!$product) {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Shoppon | Dashboard</title>
+    <title>Shoppon |Edit Items</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/editItems.css">
 </head>
