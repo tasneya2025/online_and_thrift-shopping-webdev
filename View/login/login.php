@@ -34,36 +34,37 @@ $cookie_role = isset($_COOKIE['user_role']) ? $_COOKIE['user_role'] : "";
 
                 <div class="select-group">
                     <select name="usertype" id="usertype" required>
-                        <option id="none" value="">Select your role</option>
-                        <option id="seller" value="seller">Seller</option>
-                        <option id="buyer" value="buyer">Buyer</option>
-                        <option id="admin" value="admin">Admin</option>
+                        <option value="">Select your role</option>
+                        <option value="seller" <?php echo ($cookie_role == 'seller') ? 'selected' : ''; ?>>Seller</option>
+                        <option value="buyer" <?php echo ($cookie_role == 'buyer') ? 'selected' : ''; ?>>Buyer</option>
+                        <option value="admin" <?php echo ($cookie_role == 'admin') ? 'selected' : ''; ?>>Admin</option>
                     </select>
-                    <?php if(isset($_SESSION['userErr'])): ?>
-                        <span class="error-text"><?php echo $_SESSION['userErr']; unset($_SESSION['userErr']); ?></span>
-                    <?php endif; ?>
                 </div>
                  
                 <div class="input-group">
-                    <input type="text" id="email" name="email" required placeholder=" ">
+                    <input type="text" id="email" name="email" value="<?php echo $cookie_email; ?>" required placeholder=" ">
                     <label for="email">Enter email</label>
                 </div>
                 <?php if(isset($_SESSION['emailErr'])): ?>
-                    <span class="error-text"><?php echo $_SESSION['emailErr']; unset($_SESSION['emailErr']); ?></span>
+                    <span class="error-text">
+                        <?php echo $_SESSION['emailErr']; unset($_SESSION['emailErr']); ?>
+                    </span>
                 <?php endif; ?>
 
                 <div class="input-group">
-                    <input type="password" id="password" name="password" required placeholder=" ">
+                    <input type="password" id="password" name="password" value="<?php echo $cookie_pass; ?>" required placeholder=" ">
                     <label for="password">Enter password</label>
                     <i class="fa-solid fa-eye" id="togglePassword"></i>
                 </div>
                 <?php if(isset($_SESSION['passErr'])): ?>
-                    <span class="error-text"><?php echo $_SESSION['passErr']; unset($_SESSION['passErr']); ?></span>
+                    <span class="error-text">
+                        <?php echo $_SESSION['passErr']; unset($_SESSION['passErr']); ?>
+                    </span>
                 <?php endif; ?>
 
                 <div class="auth-options">
                     <label class="remember-me">
-                        <input type="checkbox" name="remember"> Remember me
+                        <input type="checkbox" name="remember" <?php echo ($cookie_email != "") ? "checked" : ""; ?>> Remember me
                     </label>
                     <a href="#" class="forgot-pass">Forgot Password?</a>
                 </div>
