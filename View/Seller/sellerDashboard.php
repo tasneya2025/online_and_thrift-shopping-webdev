@@ -16,7 +16,7 @@ $productList = getSellerProducts($seller_email);
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Shoppon | Dashboard</title>
+    <title>Shoppon | Post Items</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/sellerDashboard.css">
 </head>
@@ -34,6 +34,8 @@ $productList = getSellerProducts($seller_email);
             <nav class="side-nav">
                 <a href="sellerDashboard.php" class="active"><i class="fa-solid fa-house"></i> Dashboard</a>
                 <a href="sellerPostItems.php"><i class="fa-solid fa-plus"></i> Post Item</a>
+                <a href="sellerSettings.php"><i class="fa-solid fa-gear"></i> Settings</a>
+
             </nav>
 
             <div class="bottom-section">
@@ -42,14 +44,22 @@ $productList = getSellerProducts($seller_email);
                     <strong><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : "Guest Seller"; ?></strong>
                     <br>
                     <small><?php echo isset($_SESSION['email']) ? $_SESSION['email'] : "seller@shoppon.com"; ?></small>
-            </div>
+                </div>
 
-            <a href="../../Controller/logoutController.php" class="logout-link">
-                <i class="fa-solid fa-right-from-bracket"></i> Logout
-            </a>
+                <a href="../../Controller/logoutController.php" class="logout-link">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </a>
             </div>
         </aside>
+
         <main class="main-content">
+            <?php if(isset($_SESSION['welcome_msg'])): ?>
+                <div style="background: #eafff0; color: #27ae60; padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #27ae60; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-circle-check"></i> 
+                    <?php echo $_SESSION['welcome_msg']; unset($_SESSION['welcome_msg']); ?>
+                </div>
+            <?php endif; ?>
+
             <header class="content-header">
                 <h1>Dashboard</h1>
                 <p>Overview of your store performance</p>
@@ -81,11 +91,10 @@ $productList = getSellerProducts($seller_email);
                         </div>
                         <div class="card-actions">
                             <a href="sellerEditItems.php?id=<?php echo $product['id']; ?>" class="btn-edit">Edit</a>
-                            
                             <a href="../../Controller/deleteItemController.php?id=<?php echo $product['id']; ?>" 
-                            class="btn-delete" 
-                            onclick="return confirm('Are you sure you want to delete this post? This action cannot be undone.');">
-                            Delete
+                               class="btn-delete" 
+                               onclick="return confirm('Are you sure you want to delete this post?');">
+                               Delete
                             </a>
                         </div>
                     </div>
@@ -93,9 +102,6 @@ $productList = getSellerProducts($seller_email);
                 <?php endforeach; ?>
             </section>
         </main>
-
-        
     </div>
-    
 </body>
 </html>
