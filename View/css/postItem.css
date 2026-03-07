@@ -6,14 +6,13 @@
 }
 
 body {
-    background: linear-gradient(to right, #fac6ff,rgb(229, 247, 255));
+    background: linear-gradient(to right, #fac6ff, rgb(229, 247, 255));
     min-height: 100vh;
 }
 
 .dashboard-container {
-    display: flex; 
+    display: flex;
 }
-
 
 .sidebar {
     width: 260px;
@@ -32,7 +31,6 @@ body {
     margin-bottom: 40px; 
 }
 
-
 .logo-box { 
     background: #3b71fe; 
     color: #fff; 
@@ -44,7 +42,6 @@ body {
     border-radius: 8px; 
 }
 
-
 .logo-section h2 { 
     font-size: 18px; 
     color:#3b71fe; 
@@ -53,6 +50,11 @@ body {
 .logo-section p { 
     font-size: 12px; 
     color: #999; 
+}
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
 }
 
 .side-nav a {
@@ -71,10 +73,49 @@ body {
     color: #fff; 
 }
 
-
 .side-nav i { 
     font-size: 16px; 
     width: 20px; 
+}
+
+.bottom-section {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.account-info { 
+    background: #fdf2ff; 
+    padding: 15px; 
+    border-radius: 12px; 
+}
+
+.account-info p { 
+    font-size: 11px; 
+    color: #a389b3; 
+    margin-bottom: 5px; 
+}
+
+.logout-link {
+    display: flex; 
+    align-items: center;
+    gap: 12px; 
+    padding: 12px 15px;
+    text-decoration: none; 
+    color: #ff4d4d; 
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.logout-link:hover {
+    background: #fff0f0;
+    color: #e60000;
+}
+
+.logout-link i {
+    color: #ff4d4d;
 }
 
 .account-info { margin-top: auto; background: #fdf2ff; padding: 15px; border-radius: 12px; }
