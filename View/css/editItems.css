@@ -87,7 +87,7 @@ body {
 }
 
 .edit-container {
-    margin-left: 280px;
+    margin-left: 200px;
     padding: 40px;
     width: calc(100% - 280px);
     display: flex;
@@ -135,6 +135,7 @@ textarea {
     font-size: 14px;
     outline: none;
     transition: 0.3s;
+   
 }
 
 input:focus, textarea:focus {
