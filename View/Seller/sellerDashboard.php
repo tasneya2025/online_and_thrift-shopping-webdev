@@ -2,6 +2,7 @@
 session_start();
 
 require_once("../../Model/productModel.php");
+require_once("../../Model/UserModel.php");
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
     header("Location: ../../View/login/login.php");
@@ -10,6 +11,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
 
 $seller_email = $_SESSION['email'];
 $productList = getSellerProducts($seller_email);
+$history = getRecentHistory($seller_email);
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +43,7 @@ $productList = getSellerProducts($seller_email);
             <div class="bottom-section">
                 <div class="account-info">
                     <p>Seller Account</p>
-                    <strong><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : "Guest Seller"; ?></strong>
+                    <strong style="color: #3b71fe;"><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : "Guest Seller"; ?></strong>
                     <br>
                     <small><?php echo isset($_SESSION['email']) ? $_SESSION['email'] : "seller@shoppon.com"; ?></small>
                 </div>
@@ -100,6 +102,26 @@ $productList = getSellerProducts($seller_email);
                     </div>
                 </div>
                 <?php endforeach; ?>
+            </section><br><br>
+            <section class="stat-card" style="margin-bottom:30px;">
+                <div>
+                    <h3>Recent Purchases</h3>
+                    <br>
+
+                    <?php if($history->num_rows > 0): ?>
+                        <?php while($row = $history->fetch_assoc()): ?>
+                            <p>
+                                <?php echo $row['product_name']; ?> - 
+                                $<?php echo $row['price']; ?>
+                            </p>
+                        <?php endwhile; ?>
+
+                        <br>
+                        <a href="viewAllHistory.php" style="color:#3b71fe; text-decoration:none;">View All</a>
+                    <?php else: ?>
+                        <p>No purchases yet</p>
+                    <?php endif; ?>
+                </div>
             </section>
         </main>
     </div>

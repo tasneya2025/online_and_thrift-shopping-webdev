@@ -34,27 +34,6 @@ if (!$product) {
 </head>
 <body>
     <div class="dashboard-container">
-        <aside class="sidebar">
-            <div class="logo-section">
-                <div class="logo-box"><i class="fa-solid fa-bag-shopping"></i></div>
-                <div>
-                    <h2>Shoppon</h2>
-                    <p>Seller Center</p>
-                </div>
-            </div>
-            <nav class="side-nav">
-                <a href="sellerDashboard.php" class="active"><i class="fa-solid fa-house"></i> Dashboard</a>
-                <a href="sellerPostItems.php"><i class="fa-solid fa-plus"></i> Post Item</a>
-            </nav>
-            <div class="account-info">
-                <p>Seller Account</p>
-                <strong><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : "Guest Seller"; ?></strong>
-                <br>
-                <small style="font-size: 11px; color: #666;">
-                    <?php echo isset($_SESSION['email']) ? $_SESSION['email'] : "seller@shoppon.com"; ?>
-                </small>
-            </div>
-        </aside>
         <div class="edit-container">
         <h2>Edit Item</h2>
         <p>Update details for "<?php echo $product['name']; ?>"</p>

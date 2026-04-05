@@ -35,7 +35,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
             <div class="bottom-section">
                 <div class="account-info">
                     <p>Seller Account</p>
-                    <strong><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : "Guest Seller"; ?></strong>
+                    <strong style="color: #3b71fe;"><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : "Guest Seller"; ?></strong>
                     <br>
                     <small><?php echo isset($_SESSION['email']) ? $_SESSION['email'] : "seller@shoppon.com"; ?></small>
                 </div>
