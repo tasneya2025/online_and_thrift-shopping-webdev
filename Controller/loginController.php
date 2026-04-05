@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $usertype = $_POST['usertype'];
 
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['emailErr'] = "Please enter a valid email format!";
         $hasErr = true;
@@ -35,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['name'] = $user['username']; 
             $_SESSION['role'] = $user['role'];
             $_SESSION['email'] = $user['email'];
+            $_SESSION['address'] = $user['address'];
 
        
             if (isset($_POST['remember'])) {
