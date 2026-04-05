@@ -25,11 +25,12 @@ function authuser($email, $password, $roleId) {
 
 function getUserDataByEmail($email) {
     $conn = get_db_connection();
-    $sql = "SELECT * FROM seller WHERE email = ?";
+    $sql = "SELECT username, email, address, password FROM seller WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    return $stmt->get_result()->fetch_assoc();
+    $result = $stmt->get_result();
+    return $result->fetch_assoc(); 
 }
 
 function updateUserInfo($email, $fullname, $address) {
@@ -46,6 +47,49 @@ function updatePasswordInDb($email, $hashed_password) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $hashed_password, $email);
     return $stmt->execute();
+}
+
+
+function getNotificationStatus($email) {
+    $conn = get_db_connection();
+    $sql = "SELECT is_enabled FROM notification_settings WHERE email=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result()->fetch_assoc();
+
+    if ($result) return $result['is_enabled'];
+
+    // default ON if not set
+    $sql = "INSERT INTO notification_settings (email, is_enabled) VALUES (?,1)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+
+    return 1;
+}
+
+function updateNotificationStatus($email, $status) {
+    $conn = get_db_connection();
+    $sql = "UPDATE notification_settings SET is_enabled=? WHERE email=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("is", $status, $email);
+    return $stmt->execute();
+}
+
+function getRecentHistory($seller_email) {
+    $conn = get_db_connection();
+    $sql = "SELECT * FROM purchase_history WHERE seller_email='$seller_email' ORDER BY id DESC LIMIT 5";
+    return $conn->query($sql);
+}
+
+function getAllHistory($email) {
+    $conn = get_db_connection();
+    $sql = "SELECT * FROM purchase_history WHERE seller_email=? ORDER BY id DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    return $stmt->get_result();
 }
 
 
