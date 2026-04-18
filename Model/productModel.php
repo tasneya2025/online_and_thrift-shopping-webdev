@@ -27,5 +27,21 @@ function getSellerProducts($email) {
     return $products;
 }
 
+function getAllProducts() {
+    $conn = get_db_connection();
+    
+    $sql = "SELECT * FROM products ORDER BY id DESC";
+    $result = mysqli_query($conn, $sql);
+
+    $products = [];
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $products[] = $row;
+        }
+    }
+
+    return $products;
+}
 
 ?>
