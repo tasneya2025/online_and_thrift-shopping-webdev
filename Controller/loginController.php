@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($user['role'] == 1) {
                 header("Location: ../View/Seller/sellerDashboard.php");
             } elseif ($user['role'] == 2) {
-                header("Location: ../View/buyer/dashboard.php");
+                header("Location: ../View/Buyer/buyerDashboard.php");
             } elseif ($user['role'] == 3) {
                 header("Location: ../View/admin/dashboard.php");
             }

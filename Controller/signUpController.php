@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     
-    if (strlen($password) != 6) {
+    if (strlen($password) <= 6) {
         $_SESSION['passErr'] = "Password must be at least 6 characters long!";
         $isValid = false;
     }
