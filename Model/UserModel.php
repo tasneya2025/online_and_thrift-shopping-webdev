@@ -3,25 +3,28 @@ require_once("db.php");
 
 function authuser($email, $password, $roleId) {
     $conn = get_db_connection();
-    $sql = "SELECT * FROM seller WHERE email='$email' AND role='$roleId'";
+
+    if ($roleId == 1) {
+        $table = "seller";
+    } else if ($roleId == 2) {
+        $table = "buyer";
+    }
+
+    $sql = "SELECT * FROM $table WHERE email='$email'";
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
-    
-        if (password_verify($password, $user['password'])) {
-            return $user; 
-        }
 
-        else {
+        if (password_verify($password, $user['password'])) {
+            return $user;
+        } else {
             return "WRONG_PASSWORD";
         }
-
     }
+
     return "EMAIL_NOT_FOUND";
-
 }
-
 
 function getUserDataByEmail($email) {
     $conn = get_db_connection();
@@ -60,7 +63,6 @@ function getNotificationStatus($email) {
 
     if ($result) return $result['is_enabled'];
 
-    // default ON if not set
     $sql = "INSERT INTO notification_settings (email, is_enabled) VALUES (?,1)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
@@ -91,6 +93,5 @@ function getAllHistory($email) {
     $stmt->execute();
     return $stmt->get_result();
 }
-
 
 ?>
