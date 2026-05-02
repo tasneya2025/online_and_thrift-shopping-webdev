@@ -20,3 +20,15 @@ if (fileInput) {
         }
     });
 }
+const conditionSelect = document.getElementById("condition");
+const thriftFields = document.getElementById("thriftFields");
+
+if(conditionSelect){
+    conditionSelect.addEventListener("change", function(){
+        if(this.value === "thrift"){
+            thriftFields.style.display = "block";
+        } else {
+            thriftFields.style.display = "none";
+        }
+    });
+}
