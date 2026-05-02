@@ -29,6 +29,8 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
                 <a href="sellerDashboard.php"><i class="fa-solid fa-house"></i> Dashboard</a>
                 <a href="sellerPostItems.php" class="active"><i class="fa-solid fa-plus"></i> Post Item</a>
                 <a href="sellerSettings.php"><i class="fa-solid fa-gear"></i> Settings</a>
+                <a href="sellerHistory.php"><i class="fa-regular fa-clock"></i>History</a>
+
 
             </nav>
 
@@ -93,6 +95,31 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 1) {
                     <?php if(isset($_SESSION['typeErr'])): ?>
                         <span class="err-msg"><?php echo $_SESSION['typeErr']; unset($_SESSION['typeErr']); ?></span>
                     <?php endif; ?>
+                </div>
+                <div class="form-group">
+                    <label>Item Condition</label>
+                    <select name="item_condition" id="condition">
+                        <option value="">Select item condition</option>
+                        <option value="new">Brand New</option>
+                        <option value="thrift">Used (Thrift)</option>
+                    </select>
+                </div>
+
+                <div id="thriftFields" style="display:none;">
+                    <div class="form-group">
+                        <label>Used Duration</label>
+                        <input type="text" name="used_duration" placeholder="e.g. 1 year">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Condition Details</label>
+                        <input type="text" name="condition_details" placeholder="e.g. Good / Slightly worn">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Defects (optional)</label>
+                        <input type="text" name="defects" placeholder="e.g. small stain">
+                    </div>
                 </div>
 
                 <div class="row">
