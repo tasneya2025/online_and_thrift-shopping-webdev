@@ -15,6 +15,7 @@ $data = getAllHistory($_SESSION['email']);
 <head>
     <title>All Purchase History</title>
     <link rel="stylesheet" href="../css/allHistory.css">
+    <link rel="stylesheet" href="../css/logout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -72,6 +73,6 @@ $data = getAllHistory($_SESSION['email']);
             </tbody>
         </table>
     </div>
-
+<script src="../js/logout.js"></script>
 </body>
 </html>

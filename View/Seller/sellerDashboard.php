@@ -46,6 +46,7 @@ function bellTimeAgo($datetime) {
     <title>Shoppon | Seller Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/sellerDashboard.css">
+    <link rel="stylesheet" href="../css/logout.css">
 
 </head>
 <body>
@@ -203,5 +204,6 @@ function bellTimeAgo($datetime) {
     </main>
 </div>
 <script src="../js/sellerDashboard.js"></script>
+<script src="../js/logout.js"></script>
 </body>
 </html>

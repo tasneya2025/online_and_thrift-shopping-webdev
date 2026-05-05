@@ -35,6 +35,7 @@ function timeAgo($datetime) {
 <head>
     <title>Settings | Shoppon</title>
     <link rel="stylesheet" href="../css/sellerSettings.css">
+    <link rel="stylesheet" href="../css/logout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -165,15 +166,21 @@ function toggle(id, el) {
 }
 
 document.getElementById('notifToggle').addEventListener('change', function () {
-    var status  = this.checked ? 1 : 0;
-    var section = document.getElementById('notifSection');
-
-    section.style.display = this.checked ? '' : 'none';
+    var status   = this.checked ? 1 : 0;
+    var checkbox = this;
 
     fetch('../../Controller/updateSettingsController.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'toggle_notification=1&notification=' + status
+    }).then(function (response) {
+        if (!response.ok) {
+            // Revert toggle if server returned an error
+            checkbox.checked = !checkbox.checked;
+        }
+    }).catch(function () {
+        // Revert toggle on network error
+        checkbox.checked = !checkbox.checked;
     });
 });
 
@@ -197,5 +204,6 @@ if (markBtn) {
     });
 }
 </script>
+<script src="../js/logout.js"></script>
 </body>
 </html>
