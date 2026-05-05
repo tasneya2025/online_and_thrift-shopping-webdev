@@ -4,6 +4,12 @@ session_start();
 $cookie_email = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : "";
 $cookie_pass = isset($_COOKIE['user_pass']) ? $_COOKIE['user_pass'] : "";
 $cookie_role = isset($_COOKIE['user_role']) ? $_COOKIE['user_role'] : "";
+
+$old = $_SESSION['old_input'] ?? [];
+unset($_SESSION['old_input']);
+
+$fill_email    = htmlspecialchars($old['email'] ?? $cookie_email);
+$fill_usertype = $old['usertype'] ?? $cookie_role;
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +23,13 @@ $cookie_role = isset($_COOKIE['user_role']) ? $_COOKIE['user_role'] : "";
 <body class="login-body">
     <div class="login-card">
         <div class="welcome-panel">
+            <a href="../home/home.php" class="back-home">
+                <i class="fa-solid fa-house"></i>
+            </a>
             <div class="welcome-content">
                 <h1>Welcome to Log In!</h1>
                 <p>Don't have an account?</p>
-                <a href="../login/signUp.php" class="btn-signUp-outline" >Sign up here</a>
+                <a href="../login/signUp.php" class="btn-signUp-outline">Sign up here</a>
             </div>
         </div>
 
@@ -35,14 +44,14 @@ $cookie_role = isset($_COOKIE['user_role']) ? $_COOKIE['user_role'] : "";
                 <div class="select-group">
                     <select name="usertype" id="usertype" required>
                         <option value="">Select your role</option>
-                        <option value="seller" <?php echo ($cookie_role == 'seller') ? 'selected' : ''; ?>>Seller</option>
-                        <option value="buyer" <?php echo ($cookie_role == 'buyer') ? 'selected' : ''; ?>>Buyer</option>
-                        <option value="admin" <?php echo ($cookie_role == 'admin') ? 'selected' : ''; ?>>Admin</option>
+                        <option value="seller" <?php echo ($fill_usertype == 'seller') ? 'selected' : ''; ?>>Seller</option>
+                        <option value="buyer" <?php echo ($fill_usertype == 'buyer') ? 'selected' : ''; ?>>Buyer</option>
+                        <option value="admin" <?php echo ($fill_usertype == 'admin') ? 'selected' : ''; ?>>Admin</option>
                     </select>
                 </div>
                  
                 <div class="input-group">
-                    <input type="text" id="email" name="email" value="<?php echo $cookie_email; ?>" required placeholder=" ">
+                    <input type="text" id="email" name="email" value="<?php echo $fill_email; ?>" required placeholder=" ">
                     <label for="email">Enter email</label>
                 </div>
                 <?php if(isset($_SESSION['emailErr'])): ?>
