@@ -33,7 +33,7 @@ function oldChecked($key, $value) {
                     <i class="fa-solid fa-house"></i>
                 </a>
             </div>
-            <h1 id ="logo-head">Welcome to Sign Up</h1>
+            <h1 id="logo-head">Welcome to Sign Up</h1>
             <p>Log in to your seller account or create a new one</p>
         </div>
 
@@ -43,15 +43,14 @@ function oldChecked($key, $value) {
                 <span class="error-text"><i class="fa-solid fa-circle-exclamation"></i> <?php echo $_SESSION['signErr']; unset($_SESSION['signErr']); ?></span><br><br>
             <?php endif; ?>
             
-             <div class="signup-input-group">
+            <div class="signup-input-group">
                 <label>Register as</label>
                 <select name="role" id="usertype" required>
                     <option value="">select your role</option>
                     <option value="1" <?php echo oldSelected('role','1'); ?>>Seller</option>
                     <option value="2" <?php echo oldSelected('role','2'); ?>>Buyer</option>
-                    <option value="3" <?php echo oldSelected('role','3'); ?>>Admin</option>
                 </select>
-            </div> 
+            </div>
 
             <div class="signup-input-group">
                 <label>Full Name</label>
@@ -71,8 +70,8 @@ function oldChecked($key, $value) {
 
             <div class="signup-input-group">
                 <label>Email</label>
-                <input type="text" name="email" value="<?php echo old('email'); ?>" required>
-                <?php if(isset($_SESSION['emailErr'])): ?>
+                <input type="text" name="email" id="emailInput" value="<?php echo old('email'); ?>" required autocomplete="off">
+                <span id="emailCheckMsg"></span>                <?php if(isset($_SESSION['emailErr'])): ?>
                     <span class="error-text"><?php echo $_SESSION['emailErr']; unset($_SESSION['emailErr']); ?></span>
                 <?php endif; ?>
             </div>
@@ -110,6 +109,19 @@ function oldChecked($key, $value) {
                 </div>
                 <?php if(isset($_SESSION['passErr'])): ?>
                     <span class="error-text"><?php echo $_SESSION['passErr']; unset($_SESSION['passErr']); ?></span>
+                <?php endif; ?>
+            </div>
+
+            <div class="signup-input-group">
+                <label>Security Question</label>
+                <input type="text" value="What is your nickname?" readonly style="color:#777; cursor:default;">
+            </div>
+
+            <div class="signup-input-group">
+                <label>Your Answer <span style="font-size:11px; color:#aaa;">(alphabets only)</span></label>
+                <input type="text" name="secret_answer" value="<?php echo old('secret_answer'); ?>" placeholder="Enter your nickname" pattern="[a-zA-Z]+" title="Alphabets only, no spaces or numbers" required>
+                <?php if(isset($_SESSION['answerErr'])): ?>
+                    <span class="error-text"><?php echo $_SESSION['answerErr']; unset($_SESSION['answerErr']); ?></span>
                 <?php endif; ?>
             </div>
 

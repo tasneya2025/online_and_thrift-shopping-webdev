@@ -2,8 +2,8 @@
 session_start(); 
 
 $cookie_email = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : "";
-$cookie_pass = isset($_COOKIE['user_pass']) ? $_COOKIE['user_pass'] : "";
-$cookie_role = isset($_COOKIE['user_role']) ? $_COOKIE['user_role'] : "";
+$cookie_pass  = isset($_COOKIE['user_pass'])  ? $_COOKIE['user_pass']  : "";
+$cookie_role  = isset($_COOKIE['user_role'])  ? $_COOKIE['user_role']  : "";
 
 $old = $_SESSION['old_input'] ?? [];
 unset($_SESSION['old_input']);
@@ -45,8 +45,8 @@ $fill_usertype = $old['usertype'] ?? $cookie_role;
                     <select name="usertype" id="usertype" required>
                         <option value="">Select your role</option>
                         <option value="seller" <?php echo ($fill_usertype == 'seller') ? 'selected' : ''; ?>>Seller</option>
-                        <option value="buyer" <?php echo ($fill_usertype == 'buyer') ? 'selected' : ''; ?>>Buyer</option>
-                        <option value="admin" <?php echo ($fill_usertype == 'admin') ? 'selected' : ''; ?>>Admin</option>
+                        <option value="buyer"  <?php echo ($fill_usertype == 'buyer')  ? 'selected' : ''; ?>>Buyer</option>
+                        <option value="admin"  <?php echo ($fill_usertype == 'admin')  ? 'selected' : ''; ?>>Admin</option>
                     </select>
                 </div>
                  
@@ -75,7 +75,7 @@ $fill_usertype = $old['usertype'] ?? $cookie_role;
                     <label class="remember-me">
                         <input type="checkbox" name="remember" <?php echo ($cookie_email != "") ? "checked" : ""; ?>> Remember me
                     </label>
-                    <a href="#" class="forgot-pass">Forgot Password?</a>
+                    <a href="forgotPassword.php" class="forgot-pass">Forgot Password?</a>
                 </div>
                 <button type="submit" class="btn-login-submit">Log In</button>
             </form>
