@@ -16,6 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $colors      = $_POST['colors'];
     $stock       = $_POST['stock'];
     $description = $_POST['description'];
+    $item_condition = $_POST['item_condition'] ?? 'new';
+    $used_duration = $_POST['used_duration'] ?? NULL;
+    $condition_details = $_POST['condition_details'] ?? NULL;
+    $defects = $_POST['defects'] ?? NULL;
 
 
     if (empty($productName)) {
@@ -93,6 +97,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     if ($hasErr) {
+        $_SESSION['old_input'] = [
+            'product_name'      => $productName,
+            'category'          => $category,
+            'product_type'      => $productType,
+            'item_condition'    => $item_condition,
+            'used_duration'     => $used_duration,
+            'condition_details' => $condition_details,
+            'defects'           => $defects,
+            'fabric'            => $fabric,
+            'price'             => $price,
+            'sizes'             => $sizes,
+            'colors'            => $colors,
+            'stock'             => $stock,
+            'description'       => $description,
+        ];
         header("Location: ../View/Seller/sellerPostItems.php");
         exit();
     } 
@@ -113,10 +132,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(move_uploaded_file($_FILES['product_image']['tmp_name'], $target_path)) {
         
         $seller_email = $_SESSION['email']; 
-        
-  
-        $result = insert_item($productName, $category, $productType, $fabric, $price, $sizes, $colors, $stock, $description, $filename, $seller_email);
-        
+        $result = insert_item(
+            $productName, $category, $productType, $fabric, $price,
+            $sizes, $colors, $stock, $description,
+            $filename, $seller_email,
+            $item_condition, $used_duration, $condition_details, $defects
+        );        
         if ($result) {
             $_SESSION['success'] = "Product posted successfully!";
             header("Location: ../View/Seller/sellerDashboard.php");

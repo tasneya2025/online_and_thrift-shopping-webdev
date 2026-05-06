@@ -20,6 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }    
   
     if ($hasErr) {
+        $_SESSION['old_input'] = [
+            'email'    => $email,
+            'usertype' => $usertype,
+        ];
         header("Location: ../View/login/login.php");
         exit();
     } 
@@ -60,14 +64,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } 
         elseif ($user === "WRONG_PASSWORD") {
-
             $_SESSION['passErr'] = "The password you entered is incorrect.";
+            $_SESSION['old_input'] = ['email' => $email, 'usertype' => $usertype];
             header("Location: ../View/login/login.php");
             exit();
         } 
         elseif ($user === "EMAIL_NOT_FOUND") {
-            
             $_SESSION['emailErr'] = "This email is not registered for the selected role.";
+            $_SESSION['old_input'] = ['email' => $email, 'usertype' => $usertype];
             header("Location: ../View/login/login.php");
             exit();
         }

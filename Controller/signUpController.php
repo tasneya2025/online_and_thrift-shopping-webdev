@@ -3,64 +3,83 @@ session_start();
 require_once("../Model/signUpModel.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $fullname = trim($_POST['fullname']);
-    $username = trim($_POST['username']);
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $fullname         = trim($_POST['fullname']);
+    $username         = trim($_POST['username']);
+    $email            = $_POST['email'];
+    $password         = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
-    $address = trim($_POST['address']);
-    $isValid = true;
-
+    $address          = trim($_POST['address']);
+    $secret_answer    = trim($_POST['secret_answer'] ?? '');
+    $isValid          = true;
 
     if (!preg_match("/^[a-zA-Z\s]*$/", $fullname)) {
         $_SESSION['nameErr'] = "Full Name must only contain letters and spaces!";
         $isValid = false;
     }
 
-    
     if (str_word_count($username) > 4) {
         $_SESSION['userErr'] = "Username cannot be more than 5 words!";
         $isValid = false;
     }
 
-    
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['emailErr'] = "Please enter a valid email address!";
         $isValid = false;
     }
 
-    
     if (strlen($password) <= 6) {
         $_SESSION['passErr'] = "Password must be at least 6 characters long!";
         $isValid = false;
     }
 
-    
     if ($password !== $confirm_password) {
         $_SESSION['passErr'] = "Passwords do not match!";
         $isValid = false;
     }
 
-    
     if (str_word_count($address) <= 4) {
         $_SESSION['addressErr'] = "Address must be at least 5 words!";
         $isValid = false;
     }
 
-    
+    if (empty($secret_answer)) {
+        $_SESSION['answerErr'] = "Security answer is required!";
+        $isValid = false;
+    } elseif (!preg_match('/^[a-zA-Z]+$/', $secret_answer)) {
+        $_SESSION['answerErr'] = "Answer must contain alphabets only, no spaces or numbers!";
+        $isValid = false;
+    }
+
     if (!$isValid) {
+        $_SESSION['old_input'] = [
+            'role'          => $_POST['role'] ?? '',
+            'fullname'      => $fullname,
+            'username'      => $username,
+            'email'         => $email,
+            'gender'        => $_POST['gender'] ?? '',
+            'address'       => $address,
+            'secret_answer' => $secret_answer,
+        ];
         header("Location: ../View/login/signUp.php");
         exit();
     }
 
-    
-    $isCreated = insertUser($_POST['role'],$fullname, $username, $email, $_POST['gender'], $address, $password);
+    $isCreated = insertUser($_POST['role'], $fullname, $username, $email, $_POST['gender'], $address, $password, $secret_answer);
 
     if ($isCreated) {
         header("Location: ../View/login/login.php?success=1");
         exit();
     } else {
         $_SESSION['signErr'] = "Registration failed. Username or Email already exists.";
+        $_SESSION['old_input'] = [
+            'role'          => $_POST['role'] ?? '',
+            'fullname'      => $fullname,
+            'username'      => $username,
+            'email'         => $email,
+            'gender'        => $_POST['gender'] ?? '',
+            'address'       => $address,
+            'secret_answer' => $secret_answer,
+        ];
         header("Location: ../View/login/signUp.php");
         exit();
     }
