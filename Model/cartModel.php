@@ -1,7 +1,8 @@
 <?php
 require_once(dirname(__FILE__) . "/db.php");
 
-function addToCart($buyer_email, $product_id) {
+function addToCart($buyer_email, $product_id) 
+{
     $conn  = get_db_connection();
     $email = mysqli_real_escape_string($conn, $buyer_email);
     $pid   = (int)$product_id;
@@ -91,10 +92,8 @@ function checkoutCart($buyer_email) {
         $price        = (float)$item['price'];
         $seller_email = mysqli_real_escape_string($conn, $item['seller_email']);
 
-        // 1. Decrease stock
         mysqli_query($conn, "UPDATE products SET stock = GREATEST(stock - $qty, 0) WHERE id=$pid");
 
-        // 2. Write one purchase_history row per unit sold
         for ($i = 0; $i < $qty; $i++) {
             mysqli_query($conn,
                 "INSERT INTO purchase_history
@@ -105,7 +104,6 @@ function checkoutCart($buyer_email) {
         }
     }
 
-    // 3. Clear the cart
     mysqli_query($conn, "DELETE FROM cart WHERE buyer_email='$email'");
 }
 ?>

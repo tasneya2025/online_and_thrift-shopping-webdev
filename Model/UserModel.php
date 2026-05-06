@@ -12,7 +12,6 @@ function authuser($email, $password, $roleId) {
     return "EMAIL_NOT_FOUND";
 }
 
-/* USER DATA */
 function getUserDataByEmail($email) {
     $conn = get_db_connection();
     $stmt = $conn->prepare("SELECT username, email, address, password FROM seller WHERE email=?");
@@ -55,7 +54,6 @@ function updateBuyerPasswordInDb($email, $hashed_password) {
     return $stmt->execute();
 }
 
-/* NOTIFICATION TOGGLE */
 function getNotificationStatus($email) {
     $conn = get_db_connection();
     $stmt = $conn->prepare("SELECT is_enabled FROM notification_settings WHERE email=?");
@@ -74,7 +72,6 @@ function updateNotificationStatus($email, $status) {
     return $stmt->execute();
 }
 
-/* PURCHASE HISTORY */
 function getRecentHistory($seller_email) {
     $conn = get_db_connection();
     $stmt = $conn->prepare(
@@ -95,7 +92,6 @@ function getAllHistory($email) {
     return $stmt->get_result();
 }
 
-/* NOTIFICATION FEED (settings page) */
 function _ensureIsReadColumn() {
     $conn     = get_db_connection();
     $colCheck = $conn->query(
