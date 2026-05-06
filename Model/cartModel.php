@@ -79,9 +79,10 @@ function clearCart($buyer_email) {
     mysqli_query($conn, "DELETE FROM cart WHERE buyer_email='$email'");
 }
 
-function checkoutCart($buyer_email) {
-    $conn  = get_db_connection();
-    $email = mysqli_real_escape_string($conn, $buyer_email);
+function checkoutCart($buyer_email, $order_id = null) {
+    $conn     = get_db_connection();
+    $email    = mysqli_real_escape_string($conn, $buyer_email);
+    $order_id = $order_id ? (int)$order_id : 'NULL';
 
     $items = getCartItems($buyer_email);
 
@@ -97,9 +98,9 @@ function checkoutCart($buyer_email) {
         for ($i = 0; $i < $qty; $i++) {
             mysqli_query($conn,
                 "INSERT INTO purchase_history
-                    (product_name, buyer_email, seller_email, price, purchase_date, is_read)
+                    (order_id, product_name, buyer_email, seller_email, price, purchase_date, is_read)
                  VALUES
-                    ('$product_name', '$email', '$seller_email', $price, NOW(), 0)"
+                    ($order_id, '$product_name', '$email', '$seller_email', $price, NOW(), 0)"
             );
         }
     }

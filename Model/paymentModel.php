@@ -33,7 +33,7 @@ function confirmPayment($order_id, $buyer_email) {
 
     mysqli_query($conn, "UPDATE orders SET status='paid' WHERE id=$order_id");
 
-    checkoutCart($buyer_email);
+    checkoutCart($buyer_email, $order_id);
 }
 
 function getOrder($order_id) {

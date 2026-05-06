@@ -92,6 +92,22 @@ function getAllHistory($email) {
     return $stmt->get_result();
 }
 
+function getBuyerHistory($buyer_email) {
+    $conn = get_db_connection();
+    $stmt = $conn->prepare(
+        "SELECT ph.product_name, s.username AS seller_username, ph.price, ph.purchase_date,
+                o.payment_method
+         FROM purchase_history ph
+         LEFT JOIN seller s ON ph.seller_email = s.email
+         LEFT JOIN orders o ON o.id = ph.order_id
+         WHERE ph.buyer_email = ?
+         ORDER BY ph.id DESC"
+    );
+    $stmt->bind_param("s", $buyer_email);
+    $stmt->execute();
+    return $stmt->get_result();
+}
+
 function _ensureIsReadColumn() {
     $conn     = get_db_connection();
     $colCheck = $conn->query(
