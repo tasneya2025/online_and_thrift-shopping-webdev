@@ -121,6 +121,65 @@ body {
 .account-info { margin-top: auto; background: #fdf2ff; padding: 15px; border-radius: 12px; }
 .account-info p { font-size: 11px; color: #a389b3; margin-bottom: 5px; }
 
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 220px; 
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.stat-icon.green { background: #eafff0; color: #27ae60; }
+.stat-icon.purple { background: #f3f0ff; color: #8e44ad; }
+
+
+.condition-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 800;
+    z-index: 10;
+    color: white;
+}
+
+.condition-badge.new { background: #27ae60; } /* Green for New */
+.condition-badge.thrift { background: #f39c12; } /* Orange for Thrift */
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #fafafa;
+}
+
+.history-price { color: #27ae60; font-weight: 600; }
+
+.view-all-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #3b71fe;
+    text-decoration: none;
+    font-weight: 600;
+}
 
 .main-content { margin-left: 260px; flex: 1; padding: 50px; display: flex; flex-direction: column; align-items: center; }
 .page-header { text-align: center; margin-bottom: 30px; }
@@ -132,6 +191,23 @@ body {
     background: #fff; width: 100%; max-width: 650px; padding: 35px;
     border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.05);
 }
+
+#condition {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #f0f0f0;
+    background: #fafafa;
+    border-radius: 10px;
+}
+
+#thriftFields {
+    background: #f8faff;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+
 
 .form-group { margin-bottom: 20px; }
 label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: #444; }
@@ -200,3 +276,30 @@ input, textarea {
 
 .err-msg { color: #d93025; font-size: 12px; margin-top: 5px; display: block; font-weight: 500; }
 .radio-group-container { display: flex; flex-direction: column; }
+
+.tag {
+    position: absolute;
+    top: 10px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+}
+
+.tag.left {
+    left: 10px;
+}
+
+.tag.right {
+    right: 10px;
+    background: #3b71fe;
+}
+
+.tag.new {
+    background: #27ae60;
+}
+
+.tag.thrift {
+    background: #f39c12;
+}

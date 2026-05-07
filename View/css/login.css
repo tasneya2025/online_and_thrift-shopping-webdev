@@ -33,6 +33,28 @@
     border-bottom-right-radius: 50% 100%; 
     padding: 40px; 
     text-align: center;
+    position: relative;
+}
+
+.back-home {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.back-home:hover {
+    background: rgba(255, 255, 255, 0.45);
 }
 
 .btn-signUp-outline{
