@@ -44,6 +44,8 @@ unset($_SESSION['card_errors']);
             <a href="buyerDashboard.php"><i class="fa-solid fa-house"></i> Dashboard</a>
             <a href="buyerViewCart.php" class="active"><i class="fa-solid fa-cart-shopping"></i> View Cart</a>
             <a href="buyerSettings.php"><i class="fa-solid fa-gear"></i> Settings</a>
+            <a href="buyerHistory.php"><i class="fa-regular fa-clock"></i>My History</a>
+
         </nav>
         <div class="bottom-section">
             <div class="account-info">

@@ -16,6 +16,7 @@ if (!isset($_SESSION['email'])) {
     <title>Shoppon | Buyer Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/buyerSettings.css">
+    <link rel="stylesheet" href="../css/logout.css">
 </head>
 <body>
 
@@ -33,7 +34,7 @@ if (!isset($_SESSION['email'])) {
             <a href="buyerDashboard.php"><i class="fa-solid fa-house"></i> Dashboard</a>
             <a href="buyerViewCart.php"><i class="fa-solid fa-cart-shopping"></i> View Cart</a>
             <a href="buyerSettings.php" class="active"><i class="fa-solid fa-gear"></i> Settings</a>
-            <a href="sellerHistory.php"><i class="fa-regular fa-clock"></i>My History</a>
+            <a href="buyerHistory.php"><i class="fa-regular fa-clock"></i>My History</a>
 
         </nav>
 
@@ -161,6 +162,7 @@ document.getElementById("notifToggle").addEventListener("change", function() {
     });
 });
 </script>
+<script src="../js/logout.js"></script>
 
 
 </body>

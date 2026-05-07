@@ -27,6 +27,7 @@ $total    = round($subtotal + $shipping + $tax, 2);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/viewCart.css">
     <link rel="stylesheet" href="../css/payment.css">
+    <link rel="stylesheet" href="../css/logout.css">
 </head>
 <body>
 
@@ -45,7 +46,7 @@ $total    = round($subtotal + $shipping + $tax, 2);
             <a href="buyerDashboard.php"><i class="fa-solid fa-house"></i> Dashboard</a>
             <a href="buyerViewCart.php" class="active"><i class="fa-solid fa-cart-shopping"></i> View Cart</a>
             <a href="buyerSettings.php"><i class="fa-solid fa-gear"></i> Settings</a>
-            <a href="sellerHistory.php"><i class="fa-regular fa-clock"></i>My History</a>
+            <a href="buyerHistory.php"><i class="fa-regular fa-clock"></i>My History</a>
 
         </nav>
 
@@ -265,5 +266,7 @@ function selectMethod(method, labelId) {
 
 document.getElementById('onlineSubOptions').style.display = 'none';
 </script>
+<script src="../js/logout.js"></script>
+
 </body>
 </html>
