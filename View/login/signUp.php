@@ -49,6 +49,7 @@ function oldChecked($key, $value) {
                     <option value="">select your role</option>
                     <option value="1" <?php echo oldSelected('role','1'); ?>>Seller</option>
                     <option value="2" <?php echo oldSelected('role','2'); ?>>Buyer</option>
+                    
                 </select>
             </div>
 
