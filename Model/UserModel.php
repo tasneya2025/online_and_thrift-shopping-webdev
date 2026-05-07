@@ -3,8 +3,10 @@ require_once("db.php");
 
 function authuser($email, $password, $roleId) {
     $conn  = get_db_connection();
-    $table = ($roleId == 1) ? "seller" : "buyer";
-    $res   = mysqli_query($conn, "SELECT * FROM $table WHERE email='$email'");
+    if ($roleId == 1)      $table = "seller";
+    elseif ($roleId == 3)  $table = "admin";
+    else                   $table = "buyer";
+    $res = mysqli_query($conn, "SELECT * FROM $table WHERE email='$email'");
     if ($res && mysqli_num_rows($res) > 0) {
         $user = mysqli_fetch_assoc($res);
         return password_verify($password, $user['password']) ? $user : "WRONG_PASSWORD";
