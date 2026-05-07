@@ -136,6 +136,7 @@ function getMonthlyRevenue() {
          GROUP BY month_key, month
          ORDER BY month_key ASC"
     );
+    
     $rows = [];
     while ($row = mysqli_fetch_assoc($result)) $rows[] = $row;
     return $rows;
