@@ -93,7 +93,7 @@ unset($_SESSION['admin_msg']);
                             <form method="POST" action="../../Controller/adminActionController.php" style="display:inline;">
                                 <input type="hidden" name="table" value="buyer">
                                 <input type="hidden" name="id" value="<?php echo $b['id']; ?>">
-                                <input type="hidden" name="redirect" value="../Admin/buyers.php">
+                                <input type="hidden" name="redirect" value="../View/Admin/adminBuyers.php">
                                 <?php if ($b['is_banned']): ?>
                                     <input type="hidden" name="action" value="unban">
                                     <button type="submit" class="btn-action btn-unban"><i class="fa-solid fa-unlock"></i> Unban</button>
@@ -107,7 +107,7 @@ unset($_SESSION['admin_msg']);
                                 <input type="hidden" name="action" value="delete_user">
                                 <input type="hidden" name="table" value="buyer">
                                 <input type="hidden" name="id" value="<?php echo $b['id']; ?>">
-                                <input type="hidden" name="redirect" value="../Admin/buyers.php">
+                                <input type="hidden" name="redirect" value="../View/Admin/adminBuyers.php">
                                 <button type="submit" class="btn-action btn-delete"><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>

@@ -99,7 +99,7 @@ unset($_SESSION['admin_msg']);
                                   onsubmit="return confirm('Remove this product permanently?');">
                                 <input type="hidden" name="action" value="delete_product">
                                 <input type="hidden" name="id" value="<?php echo $p['id']; ?>">
-                                <input type="hidden" name="redirect" value="../Admin/products.php">
+                                <input type="hidden" name="redirect" value="../View/Admin/adminProducts.php">
                                 <button type="submit" class="btn-action btn-delete">
                                     <i class="fa-solid fa-trash"></i> Remove
                                 </button>
