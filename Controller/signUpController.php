@@ -37,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $isValid = false;
     }
 
-    if (str_word_count($address) <= 4) {
-        $_SESSION['addressErr'] = "Address must be at least 5 words!";
+    if (str_word_count($address) <= 2) {
+        $_SESSION['addressErr'] = "Address must be at least 3 words!";
         $isValid = false;
     }
 
